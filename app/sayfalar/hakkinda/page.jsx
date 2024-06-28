@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+import E from "./playstore.png"
+
 function page() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -70,6 +72,25 @@ function page() {
           https://www.linkedin.com/in/denizzhan-sahin/
         </p>
       </a>
+
+      <div className="">
+          <a
+            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+            href="https://play.google.com/store/apps/details?id=com.denizhan661907.haberler"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            
+            <Image
+              src={E}
+              alt="Vercel Logo"
+              className="dark:invert"
+              width={200}
+              height={48}
+              priority
+            />
+          </a>
+        </div>
     </div>
   </main>
   )

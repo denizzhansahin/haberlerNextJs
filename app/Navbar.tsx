@@ -60,7 +60,7 @@ export default function Nav() {
             <div className='h-10vh flex justify-between z-50 text-white lg:py-5 px-20 py-4 flex-1'>
                 <div className='flex items-center flex-1'>
                     <span className='text-3xl font-bold'>
-                        <Link href="/">
+                        <Link href="/sayfalar/genelHaberler">
                             Haberler 2024
                         </Link>
                     </span>
