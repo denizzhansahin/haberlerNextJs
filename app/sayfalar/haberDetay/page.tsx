@@ -34,6 +34,7 @@ interface PageProps {
     yayinci: string;
     metin: string;
     gorsel: string;
+    tarih: string;
   };
 }
 
@@ -45,6 +46,7 @@ const Page = async ({ params }: PageProps) => {
   const [yayinci, setYayinci] = useState<string | null>(null);
   const [metin, setMetin] = useState<string | null>(null);
   const [gorsel, setGorsel] = useState<string | null>(null);
+  const [tarih, setTarih] = useState<string | null>(null);
 
   useEffect(() => {
     setKategori(searchParams.get('kategori'));
@@ -52,9 +54,10 @@ const Page = async ({ params }: PageProps) => {
     setYayinci(searchParams.get('yayinci'));
     setMetin(searchParams.get('metin'));
     setGorsel(searchParams.get('gorsel'));
+    setTarih(searchParams.get('tarih'));
   }, [searchParams]);
 
-  if (!kategori || !baslik || !yayinci || !metin || !gorsel) {
+  if (!kategori || !baslik || !yayinci || !metin || !gorsel || !tarih) {
     return <div>Loading...</div>;
   }
 
@@ -65,6 +68,7 @@ const Page = async ({ params }: PageProps) => {
   const decodedYayinci = decodeURIComponent(yayinci);
   const decodedMetin = decodeURIComponent(metin);
   const decodedGorsel = decodeURIComponent(gorsel);
+  const decodedTarih = decodeURIComponent(tarih);
 
   const gorselUri = await gorselIndir({ yol: `haberler/${decodedGorsel}` });
 
@@ -83,6 +87,9 @@ const Page = async ({ params }: PageProps) => {
           </h2>
           <h2 className="mb-3 font-semibold">
             Yayıncı-Yazar : {decodedYayinci}{" "}
+          </h2>
+          <h2 className="mb-3 font-semibold">
+            Tarih : {decodedTarih}{" "}
           </h2>
           <p className="m-0 max-w text-sm opacity-50">
             {decodedMetin}

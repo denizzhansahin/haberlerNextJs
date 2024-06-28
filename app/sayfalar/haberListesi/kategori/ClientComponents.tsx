@@ -103,7 +103,7 @@ interface ClientComponentProps {
               return null; // Handle error case gracefully or log an error
             }
               return (
-                <Link key={5} href={`/sayfalar/haberDetay?kategori=${doc.kategori}&baslik=${doc.baslik}&yayinci=${doc.yayinci_yazar}&metin=${doc.metin}&gorsel=${result[1]}`}>
+                <Link key={5} href={`/sayfalar/haberDetay?kategori=${doc.kategori}&baslik=${doc.baslik}&yayinci=${doc.yayinci_yazar}&metin=${doc.metin}&gorsel=${result[1]}&tarih=${doc.tarih}`}>
                   <ImageCard key={6} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
 
                 </Link>
@@ -132,7 +132,7 @@ interface ClientComponentProps {
               return null; // Handle error case gracefully or log an error
             }
               return (
-                <Link key={5} href={`/sayfalar/haberDetay?kategori=${doc.kategori}&baslik=${doc.baslik}&yayinci=${doc.yayinci_yazar}&metin=${doc.metin}&gorsel=${result[1]}`}>
+                <Link key={5} href={`/sayfalar/haberDetay?kategori=${doc.kategori}&baslik=${doc.baslik}&yayinci=${doc.yayinci_yazar}&metin=${doc.metin}&gorsel=${result[1]}&tarih=${doc.tarih}`}>
                   <ImageCard key={6} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
 
                 </Link>
