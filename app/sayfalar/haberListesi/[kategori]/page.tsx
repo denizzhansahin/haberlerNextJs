@@ -24,8 +24,8 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const paths = [
-    { kategori: 'Spor' },
-{ kategori: 'Gündem' },
+    { kategori },
+
 
     // Daha fazla popüler içerik ekleyebilirsiniz
   ];
