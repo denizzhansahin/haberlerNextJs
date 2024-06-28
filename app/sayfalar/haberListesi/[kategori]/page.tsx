@@ -23,7 +23,8 @@ interface PageProps {
 }
 
 
-export async function generateStaticParams() { const paths = [ { kategori: 'Spor' }, { kategori: 'Gündem' },// Daha fazla popüler içerik ekleyebilirsiniz];return paths; }
+export async function generateStaticParams() { const paths = [ { kategori: 'Spor' }, { kategori: 'Gündem' },// Daha fazla popüler içerik ekleyebilirsiniz];
+return paths; }
 
 
 export default HaberListesi
