@@ -20,7 +20,7 @@ export default function Home() {
           >
             
             <Image
-              src="./playstore.png"
+              src="/playstore.png"
               alt="Vercel Logo"
               className="dark:invert"
               width={200}
@@ -75,7 +75,34 @@ export default function Home() {
 
       </div>
 
+
+      <p className="">
+          <Link href="sayfalar/genelHaberler">
+          Hemen Haberleri Okumak için Tıklayın! WEB Sitemiz üzerinden Okumak için Tıklayın ! Tüm Dünyanın Haberi Yanında!&nbsp;
+
+          </Link>
+        </p>
+        <div className="">
+          <a
+            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+            href="https://play.google.com/store/apps/details?id=com.denizhan661907.haberler"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            
+            <Image
+              src="/playstore.png"
+              alt="Vercel Logo"
+              className="dark:invert"
+              width={200}
+              height={48}
+              priority
+            />
+          </a>
+        </div>
+
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
