@@ -1,5 +1,7 @@
 "use client"
 
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import app_firebase from "../../../../../../../../firebaseConfig";
@@ -98,6 +100,47 @@ const Page: React.FC<PageProps> = ({ params }) => {
     </main>
 
   );
+};
+
+
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // İlk başta birkaç popüler sayfa oluşturulacak
+  const paths = [
+    { params: { kategori: 'spor', baslik: 'futbol', yayinci: 'yazar1', metin: 'metin1', gorsel: 'gorsel1.jpg' } },
+    { params: { kategori: 'haber', baslik: 'gundem', yayinci: 'yazar2', metin: 'metin2', gorsel: 'gorsel2.jpg' } },
+    // Daha fazla popüler içerik ekleyebilirsiniz
+  ];
+
+  return {
+    paths,
+    fallback: 'blocking', // Bu, eksik sayfaların istek üzerine oluşturulmasını sağlar
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  // params ile veritabanından veya API'den gerekli verileri alın
+  const { kategori, baslik, yayinci, metin, gorsel } = params as {
+    kategori: string;
+    baslik: string;
+    yayinci: string;
+    metin: string;
+    gorsel: string;
+  };
+
+  // Veritabanı veya API'den alınan verilerle sayfa oluşturma
+  return {
+    props: {
+      params: {
+        kategori,
+        baslik,
+        yayinci,
+        metin,
+        gorsel,
+      },
+    },
+    revalidate: 10, // Sayfa her 10 saniyede bir yeniden oluşturulacak
+  };
 };
 
 export default Page;
