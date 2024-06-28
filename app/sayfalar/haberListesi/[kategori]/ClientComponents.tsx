@@ -1,53 +1,12 @@
-import ClientComponent from "./ClientComponents";
-
-
-
-interface PageProps {
-    params: {
-      kategori: string;
-
-    };
-  }
-
-  const HaberListesi: React.FC<PageProps> = ({ params }) => {
-    const { kategori } = params;
-
-  
-  return (
-    <div className="">
-      <div className="m-1 columns-sm gap-1">
-      <ClientComponent kategori={kategori}/>
-      </div>
-    </div>
-  )
-}
-
-export async function generateStaticParams() {
-  const paths = [
-    { kategori: 'Spor' },
-    // Daha fazla popüler içerik ekleyebilirsiniz
-  ];
-
-  return paths;
-}
-
-
-
-export default HaberListesi
-
-
-/*
-
 "use client"
 
-import { GetServerSideProps } from 'next';
 
 import { useState, useEffect } from 'react'
 import ImageCard from '@/app/components/ImageCard'
 
 import { RootState, AppDispatch } from '../../../../redux/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { increment, VeriGetir2 } from '../../../../redux/veriler'
+import {  VeriGetir2 } from '../../../../redux/veriler'
 import Link from 'next/link'
 
 interface Item {
@@ -59,20 +18,15 @@ interface Item {
   yayinci_yazar: string;
 }
 
-interface HaberListesiProps {
-  kategori?: string | null;
-}
 
 
-interface PageProps {
-    params: {
-      kategori: string;
-
-    };
+interface ClientComponentProps {
+    kategori: string;
   }
+  
 
-  const HaberListesi: React.FC<PageProps> = ({ params }) => {
-    const { kategori } = params;
+  const ClientComponent: React.FC<ClientComponentProps> = ({ kategori }) => {
+
 
 
     const decodedKategori = decodeURIComponent(kategori);
@@ -119,23 +73,14 @@ interface PageProps {
   return (
     <div className="">
       <div className="m-1 columns-sm gap-1">
-
-
-
-
-
-
         {
 
           kategori ? (
-
             filteredItems.map((doc) => {
-
               function splitStringWithSubstring(input: string, index: number): [string, string] | null {
                 if (index < 0 || index > input.length) {
                     return null; // Geçersiz indeks durumunda null döner
                 }
-                
                 let firstPart = input.substring(0, index);
                 let secondPart = input.substring(index);
                 
@@ -157,77 +102,45 @@ interface PageProps {
               return null; // Handle error case gracefully or log an error
             }
               return (
-
-                
-
                 <Link key={1} href={`/sayfalar/haberDetay/${doc.kategori}/${doc.baslik}/${doc.yayinci_yazar}/${doc.metin}/${result[1]}`}>
                   <ImageCard key={2} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
-
                 </Link>
-
               )
             })
-
-
-
           ) : (
-
-
             veri.map((doc) => {
-
-
               function splitStringWithSubstring(input: string, index: number): [string, string] | null {
                 if (index < 0 || index > input.length) {
                     return null; // Geçersiz indeks durumunda null döner
                 }
-                
+
                 let firstPart = input.substring(0, index);
                 let secondPart = input.substring(index);
-                
                 return [firstPart, secondPart];
             }
-            
-            // Örnek kullanım
             let str = "Bu bir örnek cümle.";
             let result = splitStringWithSubstring(doc.gorsel, 9);
-            
+          
             if (result) {
                 console.log(result[0]); // Output: "Bu bir "
                 console.log(result[1]); // Output: "örnek cümle."
             }
-
             if (!result) {
               console.error(`Failed to split string for ${doc.gorsel}`);
               return null; // Handle error case gracefully or log an error
             }
               return (
-
-
                 <Link key={3} href={`/sayfalar/haberDetay/${doc.kategori}/${doc.baslik}/${doc.yayinci_yazar}/${doc.metin}/${result[1]}`}>
                   <ImageCard key={4} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
 
                 </Link>
               )
             })
-
-
           )
         }
-
-
-
-
-
-
       </div>
-
     </div>
   )
 }
 
-
-
-
-
-export default HaberListesi
-*/
+export default ClientComponent;
