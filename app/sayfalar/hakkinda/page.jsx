@@ -84,6 +84,7 @@ function page() {
             <Image
               src={E}
               alt="Vercel Logo"
+              
               className="dark:invert"
               width={200}
               height={48}
