@@ -22,17 +22,9 @@ interface PageProps {
   )
 }
 
-export async function generateStaticParams(kategori: string) {
-  // Burada kategori parametresi ile istediğiniz API'yi çağırabilir ve dinamik olarak path'leri oluşturabilirsiniz
-  // Örneğin, belirli bir kategoriye göre API'den veri çekip path'leri oluşturabilirsiniz
-  // Bu örnekte, kategori parametresini kullanarak dinamik olarak path oluşturuyoruz
-  const paths = [
-    { kategori: kategori }, // kategori değişkenini doğru şekilde tanımlayın
-    // Daha fazla popüler içerik ekleyebilirsiniz
-  ];
 
-  return paths;
-}
+export async function generateStaticParams() { const paths = [ { kategori: 'Spor' }, { kategori: 'Gündem' },// Daha fazla popüler içerik ekleyebilirsiniz];return paths; }
+
 
 export default HaberListesi
 
