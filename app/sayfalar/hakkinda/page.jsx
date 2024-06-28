@@ -16,7 +16,7 @@ function page() {
         rel="noopener noreferrer"
       >
         <h2 className="mb-3 text-2xl font-semibold">
-        Proje Hakkında{" "}
+        Proje Hakkında {" "}
 
         </h2>
         <p className="m-0 max-w text-sm opacity-50">
@@ -84,7 +84,7 @@ function page() {
             <Image
               src={E}
               alt="Vercel Logo"
-              
+
               className="dark:invert"
               width={200}
               height={48}
