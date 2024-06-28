@@ -69,7 +69,7 @@ const Page = async ({ params }: PageProps) => {
   const gorselUri = await gorselIndir({ yol: `haberler/${decodedGorsel}` });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-2">
       <div className="mb-32 grid text-left lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-rows-4 lg:text-left">
         <div className="flex justify-center items-center">
           <ClientComponent decodedGorsel={decodedGorsel} />

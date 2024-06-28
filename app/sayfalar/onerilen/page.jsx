@@ -1,10 +1,10 @@
 import React from 'react'
-import HaberListesi from '../haberListesi/page'
+//import HaberListesi from '../haberListesi/page'
 
 function page() {
   return (
     <div>
-    <HaberListesi kategori={"Önerilen"}/>
+    page
     </div>
   )
 }

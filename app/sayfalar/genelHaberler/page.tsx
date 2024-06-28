@@ -1,11 +1,11 @@
 import React from 'react'
-import HaberListesi from '../haberListesi/page'
+import ClientComponent from '../haberListesi/kategori/ClientComponents'
 
 
 function page() {
   return (
     <div>
-    <HaberListesi/>
+    <ClientComponent kategori={null}/>
     </div>
   )
 }

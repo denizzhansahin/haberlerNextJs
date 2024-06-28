@@ -73,6 +73,7 @@ interface ClientComponentProps {
   return (
     <div className="">
       <div className="m-1 columns-sm gap-1">
+      
         {
 
           kategori ? (
@@ -139,6 +140,7 @@ interface ClientComponentProps {
             })
           )
         }
+        
       </div>
     </div>
   )
