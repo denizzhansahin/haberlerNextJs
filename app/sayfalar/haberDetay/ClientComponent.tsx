@@ -4,7 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import app_firebase from "../../../../../../../../firebaseConfig";
+import app_firebase from "../../../firebaseConfig";
 import Image from 'next/image';
 
 const storage = getStorage(app_firebase);

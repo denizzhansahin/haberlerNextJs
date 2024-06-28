@@ -21,15 +21,15 @@ interface Item {
 
 
 interface ClientComponentProps {
-    kategori: string;
-  }
-  
+  kategori: string | null;
+}
+
 
   const ClientComponent: React.FC<ClientComponentProps> = ({ kategori }) => {
+    const safeKategori: string = kategori ?? "defaultKategori";
 
 
-
-    const decodedKategori = decodeURIComponent(kategori);
+    const decodedKategori = decodeURIComponent(safeKategori);
 
   function filterByCategory(items: Item[], kategori: string): Item[] {
     return items.filter(item => item.kategori === kategori);
@@ -102,8 +102,9 @@ interface ClientComponentProps {
               return null; // Handle error case gracefully or log an error
             }
               return (
-                <Link key={1} href={`/sayfalar/haberDetay/${doc.kategori}/${doc.baslik}/${doc.yayinci_yazar}/${doc.metin}/${result[1]}`}>
-                  <ImageCard key={2} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
+                <Link key={5} href={`/sayfalar/haberDetay?kategori=${doc.kategori}&baslik=${doc.baslik}&yayinci=${doc.yayinci_yazar}&metin=${doc.metin}&gorsel=${result[1]}`}>
+                  <ImageCard key={6} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
+
                 </Link>
               )
             })
@@ -130,8 +131,8 @@ interface ClientComponentProps {
               return null; // Handle error case gracefully or log an error
             }
               return (
-                <Link key={3} href={`/sayfalar/haberDetay/${doc.kategori}/${doc.baslik}/${doc.yayinci_yazar}/${doc.metin}/${result[1]}`}>
-                  <ImageCard key={4} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
+                <Link key={5} href={`/sayfalar/haberDetay?kategori=${doc.kategori}&baslik=${doc.baslik}&yayinci=${doc.yayinci_yazar}&metin=${doc.metin}&gorsel=${result[1]}`}>
+                  <ImageCard key={6} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
 
                 </Link>
               )

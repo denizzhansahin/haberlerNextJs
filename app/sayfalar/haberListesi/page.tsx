@@ -63,7 +63,7 @@ const HaberListesi: React.FC<HaberListesiProps> = ({ kategori = null }) => {
     <div className="">
       <div className="m-1 columns-sm gap-1">
 
-
+      
 
 
 
@@ -101,7 +101,7 @@ const HaberListesi: React.FC<HaberListesiProps> = ({ kategori = null }) => {
 
                 
 
-                <Link key={5} href={`/sayfalar/haberDetay/${doc.kategori}/${doc.baslik}/${doc.yayinci_yazar}/${doc.metin}/${result[1]}`}>
+                <Link key={5} href={`/sayfalar/haberDetay?kategori=${doc.kategori}&baslik=${doc.baslik}&yayinci=${doc.yayinci_yazar}&metin=${doc.metin}&gorsel=${result[1]}`}>
                   <ImageCard key={6} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
 
                 </Link>
@@ -113,7 +113,7 @@ const HaberListesi: React.FC<HaberListesiProps> = ({ kategori = null }) => {
 
           ) : (
 
-
+            
             veri.map((doc) => {
 
 
@@ -144,10 +144,12 @@ const HaberListesi: React.FC<HaberListesiProps> = ({ kategori = null }) => {
               return (
 
 
-                <Link key={7} href={`/sayfalar/haberDetay/${doc.kategori}/${doc.baslik}/${doc.yayinci_yazar}/${doc.metin}/${result[1]}`}>
-                  <ImageCard key={8} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
+                <>
+                <Link key={5} href={`/sayfalar/haberDetay?kategori=${doc.kategori}&baslik=${doc.baslik}&yayinci=${doc.yayinci_yazar}&metin=${doc.metin}&gorsel=${result[1]}`}>
+                  <ImageCard key={6} yazi={doc.baslik} kategori={doc.kategori} imgSrc={doc.gorsel} />
 
                 </Link>
+                </>
               )
             })
 

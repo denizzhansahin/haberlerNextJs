@@ -1,8 +1,14 @@
-// app/sayfalar/haberDetay/[kategori]/[baslik]/[yayinci]/[metin]/[gorsel]/page.tsx
+
+'use client'
+ 
+import { useSearchParams } from 'next/navigation'
 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import app_firebase from "../../../../../../../../firebaseConfig";
-import ClientComponent from '../[gorsel]/ClientComponent';
+import app_firebase from "../../../firebaseConfig";
+import ClientComponent from './ClientComponent';
+
+
+import React, { Suspense, useEffect, useState } from 'react';
 
 const storage = getStorage(app_firebase);
 
@@ -32,7 +38,27 @@ interface PageProps {
 }
 
 const Page = async ({ params }: PageProps) => {
-  const { kategori, baslik, yayinci, metin, gorsel } = params;
+  const searchParams = useSearchParams()
+ 
+  const [kategori, setKategori] = useState<string | null>(null);
+  const [baslik, setBaslik] = useState<string | null>(null);
+  const [yayinci, setYayinci] = useState<string | null>(null);
+  const [metin, setMetin] = useState<string | null>(null);
+  const [gorsel, setGorsel] = useState<string | null>(null);
+
+  useEffect(() => {
+    setKategori(searchParams.get('kategori'));
+    setBaslik(searchParams.get('baslik'));
+    setYayinci(searchParams.get('yayinci'));
+    setMetin(searchParams.get('metin'));
+    setGorsel(searchParams.get('gorsel'));
+  }, [searchParams]);
+
+  if (!kategori || !baslik || !yayinci || !metin || !gorsel) {
+    return <div>Loading...</div>;
+  }
+
+
 
   const decodedKategori = decodeURIComponent(kategori);
   const decodedBaslik = decodeURIComponent(baslik);
@@ -67,18 +93,15 @@ const Page = async ({ params }: PageProps) => {
   );
 };
 
-export async function generateStaticParams() {
-  const paths = [
-    { kategori: 'Spor', baslik: 'futbol', yayinci: 'yazar1', metin: 'metin1', gorsel: 'haber4.jpeg' },
-    { kategori: 'haber', baslik: 'gundem', yayinci: 'yazar2', metin: 'metin2', gorsel: 'haber3.jpeg' },
-    // Daha fazla popüler içerik ekleyebilirsiniz
-  ];
 
-  return paths;
-}
 
-export default Page;
+const PageWrapper = (props: PageProps) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Page {...props} />
+  </Suspense>
+);
 
+export default PageWrapper;
 
 
 

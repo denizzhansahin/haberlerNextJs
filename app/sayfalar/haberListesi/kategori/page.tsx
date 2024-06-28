@@ -1,5 +1,10 @@
+'use client'
+ 
+import { useSearchParams } from 'next/navigation'
+
 import ClientComponent from "./ClientComponents";
 
+import React, { Suspense, useEffect, useState } from 'react';
 
 
 interface PageProps {
@@ -10,8 +15,19 @@ interface PageProps {
   }
 
   const HaberListesi: React.FC<PageProps> = ({ params }) => {
-    const { kategori } = params;
+    const searchParams = useSearchParams()
+ 
 
+    const [kategori, setKategori] = useState<string | null>(null);
+
+    useEffect(() => {
+      setKategori(searchParams.get('kategori'));
+
+    }, [searchParams]);
+  
+    if (!kategori) {
+      return <div>Loading...</div>;
+    }
   
   return (
     <div className="">
@@ -22,6 +38,7 @@ interface PageProps {
   )
 }
 
+<<<<<<< HEAD:app/sayfalar/haberListesi/[kategori]/page.tsx
 
 export async function generateStaticParams() { const paths = [ { kategori: 'Spor' }, { kategori: 'Gündem' },
 // Daha fazla popüler içerik ekleyebilirsiniz
@@ -30,6 +47,15 @@ return paths; }
 
 
 export default HaberListesi
+=======
+const HaberListesiWrapper = (props: PageProps) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <HaberListesi {...props} />
+  </Suspense>
+);
+
+export default HaberListesiWrapper
+>>>>>>> 57ef1a4 (Çatışmaları çözüldü):app/sayfalar/haberListesi/kategori/page.tsx
 
 
 /*
