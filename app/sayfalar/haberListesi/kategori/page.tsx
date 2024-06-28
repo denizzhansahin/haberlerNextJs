@@ -38,16 +38,6 @@ interface PageProps {
   )
 }
 
-<<<<<<< HEAD:app/sayfalar/haberListesi/[kategori]/page.tsx
-
-export async function generateStaticParams() { const paths = [ { kategori: 'Spor' }, { kategori: 'Gündem' },
-// Daha fazla popüler içerik ekleyebilirsiniz
-];
-return paths; }
-
-
-export default HaberListesi
-=======
 const HaberListesiWrapper = (props: PageProps) => (
   <Suspense fallback={<div>Loading...</div>}>
     <HaberListesi {...props} />
@@ -55,7 +45,6 @@ const HaberListesiWrapper = (props: PageProps) => (
 );
 
 export default HaberListesiWrapper
->>>>>>> 57ef1a4 (Çatışmaları çözüldü):app/sayfalar/haberListesi/kategori/page.tsx
 
 
 /*
