@@ -69,8 +69,8 @@ const Page = async ({ params }: PageProps) => {
 
 export async function generateStaticParams() {
   const paths = [
-    { kategori: 'spor', baslik: 'futbol', yayinci: 'yazar1', metin: 'metin1', gorsel: 'gorsel1.jpg' },
-    { kategori: 'haber', baslik: 'gundem', yayinci: 'yazar2', metin: 'metin2', gorsel: 'gorsel2.jpg' },
+    { kategori: 'Spor', baslik: 'futbol', yayinci: 'yazar1', metin: 'metin1', gorsel: 'haber4.jpeg' },
+    { kategori: 'haber', baslik: 'gundem', yayinci: 'yazar2', metin: 'metin2', gorsel: 'haber3.jpeg' },
     // Daha fazla popüler içerik ekleyebilirsiniz
   ];
 
