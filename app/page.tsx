@@ -20,7 +20,7 @@ export default function Home() {
           >
             
             <Image
-              src="/playstore.png"
+              src="./playstore.png"
               alt="Vercel Logo"
               className="dark:invert"
               width={200}
