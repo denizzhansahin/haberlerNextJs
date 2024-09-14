@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+Bu projede web sitesi için Next JS ve Redux Toolkit kullanılmıştır. Ayrıca GitHub Actions ile kullanılabilir duruma getirilmiştir. Mobil uygulaması için React Native ve Redux Toolkit kullanılmıştır. Firebase Firestore ile veritabanı yönetimi ve Firebase Cloud Storage ile medya içeriği depolama yönetimi yapılmıştır. Redux Toolkit ile Firebase ve kullanıcı arasında verimli bir şekilde veri trafiği sağlanmış ve verilerin hızlı bir şekilde yönetilmesi sağlanmıştır. Bu kullanıcıya Firebase tarafını beklemeden içeriklere erişmesini sağlarken ayrıca ağ trafiğini azaltıp daha verimli bir deneyim yaşatmaktadır. Haberler isimli uygulama ile haber içeriklerinin daha hızlı ve erişilebilir olması sağlanması hedeflenmiştir.
+
+https://denizzhansahin.github.io/haberlerNextJs/
+
+
 ## Getting Started
 
 First, run the development server:
